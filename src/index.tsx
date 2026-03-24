@@ -42,7 +42,7 @@ function Root() {
     const handleResize = () => {
       const isMobile = window.innerWidth <= 600
       if (!isMobile) {
-        window.location.href = import.meta.env.BASE_URL || '/'
+        window.location.href = import.meta.env.VITE_ROUTER_BASENAME || '/'
       }
       setIsMobile(isMobile)
     }
@@ -53,7 +53,7 @@ function Root() {
 
   return (
     <React.StrictMode>
-      <BrowserRouter basename={import.meta.env.BASE_URL}>
+      <BrowserRouter basename={import.meta.env.VITE_ROUTER_BASENAME || '/'}>
         <VSCodeShell>
           <Suspense fallback={<Loading />}>
             <Routes>
