@@ -9,8 +9,11 @@ import { useEffect, useMemo, useState } from 'react'
 import useSound from 'use-sound'
 import type { HookOptions } from 'use-sound/dist/types'
 
-const API_BASE = import.meta.env.VITE_API_BASE_URL || '/api'
-const pronunciationApi = `${API_BASE}/pronunciation?audio=`
+// When VITE_API_BASE_URL is set, use the server proxy (/api/pronunciation).
+// Otherwise fall back to calling Youdao directly (works on GitHub Pages static hosting).
+const pronunciationApi = import.meta.env.VITE_API_BASE_URL
+  ? `${import.meta.env.VITE_API_BASE_URL}/pronunciation?audio=`
+  : 'https://dict.youdao.com/dictvoice?audio='
 export function generateWordSoundSrc(word: string, pronunciation: Exclude<PronunciationType, false>): string {
   const encodedWord = encodeURIComponent(word)
   switch (pronunciation) {
