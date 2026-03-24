@@ -1,0 +1,896 @@
+/* VS Code Dark Theme Variables */
+.vscode-mode {
+  --vsc-bg: #1e1e1e;
+  --vsc-sidebar-bg: #252526;
+  --vsc-activitybar-bg: #333333;
+  --vsc-titlebar-bg: #3c3c3c;
+  --vsc-statusbar-bg: #007acc;
+  --vsc-editor-bg: #1e1e1e;
+  --vsc-tab-active-bg: #1e1e1e;
+  --vsc-tab-inactive-bg: #2d2d2d;
+  --vsc-tab-border: #252526;
+  --vsc-border: #3c3c3c;
+  --vsc-text: #cccccc;
+  --vsc-text-dim: #858585;
+  --vsc-text-bright: #e7e7e7;
+  --vsc-accent: #007acc;
+  --vsc-highlight: #264f78;
+  --vsc-line-number: #858585;
+  --vsc-line-number-active: #c6c6c6;
+  --vsc-scrollbar: rgba(121, 121, 121, 0.4);
+  --vsc-explorer-hover: #2a2d2e;
+  --vsc-explorer-selected: #37373d;
+  --vsc-minimap-bg: #1e1e1e;
+  --vsc-badge-bg: #4d4d4d;
+  --vsc-input-bg: #3c3c3c;
+  --vsc-input-border: #3c3c3c;
+}
+
+/* Override global styles in VS Code mode */
+.vscode-mode body {
+  background-color: var(--vsc-bg) !important;
+  color: var(--vsc-text) !important;
+  font-family: 'Menlo', 'Monaco', 'Courier New', 'Consolas', monospace !important;
+}
+
+.vscode-mode main {
+  background-color: var(--vsc-editor-bg) !important;
+}
+
+/* Title Bar */
+.vsc-titlebar {
+  height: 30px;
+  background-color: var(--vsc-titlebar-bg);
+  display: flex;
+  align-items: center;
+  padding: 0 12px;
+  user-select: none;
+  -webkit-app-region: drag;
+  font-size: 12px;
+  color: var(--vsc-text);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  position: relative;
+  flex-shrink: 0;
+}
+
+.vsc-traffic-lights {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.vsc-traffic-light {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  cursor: default;
+}
+
+.vsc-traffic-light--close {
+  background-color: #ff5f57;
+}
+.vsc-traffic-light--minimize {
+  background-color: #febc2e;
+}
+.vsc-traffic-light--maximize {
+  background-color: #28c840;
+}
+
+.vsc-titlebar-text {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 13px;
+  color: var(--vsc-text-dim);
+}
+
+/* Activity Bar */
+.vsc-activitybar {
+  width: 48px;
+  background-color: var(--vsc-activitybar-bg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 4px;
+  flex-shrink: 0;
+  border-right: 1px solid var(--vsc-border);
+}
+
+.vsc-activitybar-icon {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--vsc-text-dim);
+  cursor: pointer;
+  position: relative;
+}
+
+.vsc-activitybar-icon:hover {
+  color: var(--vsc-text-bright);
+}
+
+.vsc-activitybar-icon--active {
+  color: var(--vsc-text-bright);
+}
+
+.vsc-activitybar-icon--active::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 6px;
+  bottom: 6px;
+  width: 2px;
+  background-color: var(--vsc-text-bright);
+}
+
+/* File Explorer / Sidebar */
+.vsc-sidebar {
+  background-color: var(--vsc-sidebar-bg);
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid var(--vsc-border);
+  overflow-x: auto;
+  overflow-y: auto;
+  /* Must fill the height-constrained parent so overflow-y triggers */
+  flex: 1;
+  min-height: 0;
+  height: 100%;
+}
+
+.vsc-sidebar-header {
+  height: 35px;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--vsc-text-dim);
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+.vsc-sidebar-section {
+  padding: 0;
+}
+
+.vsc-sidebar-section-header {
+  height: 22px;
+  display: flex;
+  align-items: center;
+  padding: 0 8px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--vsc-text);
+  cursor: pointer;
+  user-select: none;
+}
+
+.vsc-sidebar-section-header svg {
+  width: 16px;
+  height: 16px;
+  margin-right: 2px;
+  flex-shrink: 0;
+}
+
+.vsc-file-tree {
+  padding-left: 8px;
+}
+
+.vsc-file-item {
+  height: 22px;
+  display: flex;
+  align-items: center;
+  padding: 0 8px;
+  font-size: 13px;
+  color: var(--vsc-text);
+  cursor: pointer;
+  user-select: none;
+  white-space: nowrap;
+  /* Let content overflow; the sidebar itself scrolls */
+  overflow: visible;
+  min-width: 0;
+  flex-shrink: 0;
+}
+
+.vsc-file-item:hover {
+  background-color: var(--vsc-explorer-hover);
+}
+
+.vsc-file-item--active {
+  background-color: var(--vsc-explorer-selected);
+}
+
+.vsc-file-item--folder {
+  font-weight: 400;
+}
+
+.vsc-file-icon {
+  width: 16px;
+  height: 16px;
+  margin-right: 6px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+}
+
+.vsc-file-icon--ts {
+  color: #3178c6;
+}
+.vsc-file-icon--json {
+  color: #cbcb41;
+}
+.vsc-file-icon--md {
+  color: #519aba;
+}
+.vsc-file-icon--folder {
+  color: #c09553;
+}
+.vsc-file-icon--config {
+  color: #6d8086;
+}
+.vsc-file-icon--git {
+  color: #e64d3d;
+}
+
+/* Editor Tabs */
+.vsc-tabs {
+  height: 35px;
+  background-color: var(--vsc-tab-inactive-bg);
+  display: flex;
+  align-items: stretch;
+  overflow-x: auto;
+  flex-shrink: 0;
+  border-bottom: 1px solid var(--vsc-border);
+}
+
+.vsc-tabs::-webkit-scrollbar {
+  height: 3px;
+}
+.vsc-tabs::-webkit-scrollbar-thumb {
+  background: var(--vsc-scrollbar);
+}
+
+.vsc-tab {
+  display: flex;
+  align-items: center;
+  padding: 0 12px;
+  gap: 6px;
+  font-size: 13px;
+  color: var(--vsc-text-dim);
+  cursor: pointer;
+  user-select: none;
+  border-right: 1px solid var(--vsc-tab-border);
+  white-space: nowrap;
+  flex-shrink: 0;
+  min-width: 0;
+  position: relative;
+}
+
+.vsc-tab:hover {
+  color: var(--vsc-text);
+}
+
+.vsc-tab--active {
+  background-color: var(--vsc-tab-active-bg);
+  color: var(--vsc-text-bright);
+}
+
+.vsc-tab--active::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background-color: var(--vsc-accent);
+}
+
+.vsc-tab-close {
+  width: 16px;
+  height: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  opacity: 0;
+  transition: opacity 0.1s;
+}
+
+.vsc-tab:hover .vsc-tab-close {
+  opacity: 1;
+}
+
+.vsc-tab-close:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Editor Area */
+.vsc-editor-area {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--vsc-editor-bg);
+  min-width: 0;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.vsc-editor-content {
+  flex: 1;
+  display: flex;
+  position: relative;
+  overflow: hidden;
+}
+
+.vsc-line-numbers {
+  width: 60px;
+  background-color: var(--vsc-editor-bg);
+  color: var(--vsc-line-number);
+  font-size: 14px;
+  line-height: 22px;
+  padding: 8px 0;
+  text-align: right;
+  padding-right: 16px;
+  user-select: none;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.vsc-line-numbers .active {
+  color: var(--vsc-line-number-active);
+}
+
+.vsc-editor-main {
+  flex: 1;
+  padding: 8px 16px;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 0;
+}
+
+/* Sentence practice page: full-width, scrollable, top-aligned */
+.vsc-editor-main--full {
+  align-items: stretch;
+  justify-content: flex-start;
+  padding: 0;
+}
+
+.vsc-minimap {
+  width: 60px;
+  background-color: var(--vsc-minimap-bg);
+  border-left: 1px solid var(--vsc-border);
+  flex-shrink: 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.vsc-minimap-block {
+  position: absolute;
+  left: 8px;
+  right: 8px;
+  background-color: rgba(200, 200, 200, 0.08);
+  border-radius: 1px;
+}
+
+/* Status Bar */
+.vsc-statusbar {
+  height: 22px;
+  background-color: var(--vsc-statusbar-bg);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 10px;
+  font-size: 12px;
+  color: #ffffff;
+  flex-shrink: 0;
+  user-select: none;
+}
+
+.vsc-statusbar-left,
+.vsc-statusbar-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.vsc-statusbar-item {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+  padding: 0 4px;
+  height: 100%;
+}
+
+.vsc-statusbar-item:hover {
+  background-color: rgba(255, 255, 255, 0.12);
+}
+
+/* Toggle Button (floating, shown when NOT in vscode mode) */
+.vsc-toggle-btn {
+  position: fixed;
+  top: 12px;
+  right: 12px;
+  z-index: 9999;
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  border: 1px solid rgba(156, 163, 175, 0.3);
+  background-color: rgba(255, 255, 255, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.vsc-toggle-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+  border-color: #007acc;
+}
+
+.dark .vsc-toggle-btn {
+  background-color: rgba(45, 45, 45, 0.9);
+  border-color: rgba(80, 80, 80, 0.5);
+}
+
+.dark .vsc-toggle-btn:hover {
+  border-color: #007acc;
+}
+
+/* Scrollbar overrides in vscode mode */
+.vscode-mode ::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+.vscode-mode ::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.vscode-mode ::-webkit-scrollbar-thumb {
+  background: var(--vsc-scrollbar);
+  border-radius: 0;
+}
+
+.vscode-mode ::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+/* Breadcrumb */
+.vsc-breadcrumb {
+  height: 22px;
+  display: flex;
+  align-items: center;
+  padding: 0 12px;
+  font-size: 12px;
+  color: var(--vsc-text-dim);
+  gap: 4px;
+  flex-shrink: 0;
+  background-color: var(--vsc-editor-bg);
+}
+
+.vsc-breadcrumb span {
+  cursor: pointer;
+}
+
+.vsc-breadcrumb span:hover {
+  color: var(--vsc-text);
+}
+
+.vsc-breadcrumb-separator {
+  font-size: 10px;
+  color: var(--vsc-text-dim);
+}
+
+/* Panel / Terminal area */
+.vsc-panel {
+  height: 180px;
+  background-color: var(--vsc-sidebar-bg);
+  border-top: 1px solid var(--vsc-border);
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+}
+
+.vsc-panel-tabs {
+  height: 35px;
+  display: flex;
+  align-items: center;
+  padding: 0 8px;
+  gap: 0;
+  border-bottom: 1px solid var(--vsc-border);
+}
+
+.vsc-panel-tab {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding: 0 12px;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--vsc-text-dim);
+  cursor: pointer;
+  position: relative;
+}
+
+.vsc-panel-tab--active {
+  color: var(--vsc-text-bright);
+}
+
+.vsc-panel-tab--active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background-color: var(--vsc-accent);
+}
+
+.vsc-panel-content {
+  flex: 1;
+  padding: 8px 12px;
+  font-size: 13px;
+  color: var(--vsc-text);
+  overflow: auto;
+  font-family: 'Menlo', 'Monaco', 'Courier New', monospace;
+  line-height: 1.5;
+}
+
+.vsc-terminal-prompt {
+  color: #6a9955;
+}
+
+.vsc-terminal-cmd {
+  color: var(--vsc-text);
+}
+
+/* Override main content styling in vscode mode */
+.vscode-mode .my-card {
+  box-shadow: none !important;
+  background-color: transparent !important;
+}
+
+.vscode-mode footer {
+  display: none !important;
+}
+
+/* Hide the typing page's own header when inside VS Code shell */
+.vscode-mode .vsc-typing-header {
+  display: none !important;
+}
+
+/* Keep sentence-practice header visible in VS Code mode */
+.vscode-mode .sentence-practice-header {
+  display: flex !important;
+  background-color: var(--vsc-sidebar-bg);
+  border-bottom-color: var(--vsc-border);
+  color: var(--vsc-text);
+}
+
+/* --- Sidebar scrollbar --- */
+.vsc-sidebar::-webkit-scrollbar {
+  width: 6px;
+}
+.vsc-sidebar::-webkit-scrollbar-thumb {
+  background: rgba(121, 121, 121, 0.3);
+  border-radius: 0;
+}
+
+/* --- Status bar exit button highlight --- */
+.vsc-statusbar-exit:hover {
+  background-color: rgba(255, 80, 80, 0.28) !important;
+}
+
+/* --- AI icon in activity bar --- */
+.vsc-activitybar-icon--ai {
+  position: relative;
+  color: var(--vsc-text-dim);
+}
+
+.vsc-activitybar-icon--ai:hover {
+  color: #f0a500;
+  background-color: rgba(240, 165, 0, 0.12);
+}
+
+.vsc-activitybar-icon--ai.vsc-activitybar-icon--active {
+  color: #f0a500;
+}
+
+.vsc-activitybar-icon--ai.vsc-activitybar-icon--active::before {
+  background-color: #f0a500;
+}
+
+.vsc-activitybar-badge {
+  position: absolute;
+  bottom: 4px;
+  right: 4px;
+  background-color: #f0a500;
+  color: #1e1e1e;
+  font-size: 8px;
+  font-weight: 800;
+  line-height: 1;
+  padding: 1px 3px;
+  border-radius: 3px;
+  letter-spacing: 0.03em;
+  pointer-events: none;
+}
+
+/* ============================================================
+   Sentence Practice — VS Code Mode Overrides
+   ============================================================ */
+
+/* Outer container: fill the overflow-auto area */
+.vscode-mode .sentence-practice-page {
+  min-height: 100%;
+  background-color: var(--vsc-editor-bg) !important;
+  color: var(--vsc-text) !important;
+}
+
+/* Header row */
+.vscode-mode .sentence-practice-header {
+  display: flex !important;
+  background-color: var(--vsc-sidebar-bg) !important;
+  border-bottom: 1px solid var(--vsc-border) !important;
+  color: var(--vsc-text) !important;
+  font-family: 'Menlo', 'Monaco', 'Consolas', monospace;
+  font-size: 12px !important;
+}
+
+.vscode-mode .sentence-practice-header * {
+  color: inherit !important;
+}
+
+/* Back-button & small text in header */
+.vscode-mode .sentence-practice-header button {
+  color: var(--vsc-text-dim) !important;
+}
+.vscode-mode .sentence-practice-header button:hover {
+  color: var(--vsc-text-bright) !important;
+  background-color: var(--vsc-explorer-hover) !important;
+}
+
+/* Pill/segmented toggle buttons inside header */
+.vscode-mode .sentence-practice-header .rounded-lg.bg-gray-100,
+.vscode-mode .sentence-practice-header .rounded-lg.dark\\:bg-gray-700 {
+  background-color: var(--vsc-badge-bg) !important;
+  border: 1px solid var(--vsc-border) !important;
+}
+
+/* Active segment inside toggle */
+.vscode-mode .sentence-practice-header .rounded-md.bg-white,
+.vscode-mode .sentence-practice-header .rounded-md.dark\\:bg-gray-600 {
+  background-color: var(--vsc-accent) !important;
+  color: #fff !important;
+  box-shadow: none !important;
+}
+
+/* ---- Content area ---- */
+
+/* Word title */
+.vscode-mode .sentence-content h2 {
+  color: var(--vsc-text-bright) !important;
+  font-family: 'Menlo', 'Monaco', 'Consolas', monospace;
+}
+
+.vscode-mode .sentence-content p {
+  color: var(--vsc-text-dim) !important;
+}
+
+/* Error box */
+.vscode-mode .sentence-content .bg-red-50 {
+  background-color: rgba(200, 50, 50, 0.15) !important;
+  color: #f88070 !important;
+}
+
+/* Input textarea */
+.vscode-mode .sentence-content textarea {
+  background-color: var(--vsc-input-bg) !important;
+  border-color: var(--vsc-input-border) !important;
+  color: var(--vsc-text-bright) !important;
+  font-family: 'Menlo', 'Monaco', 'Consolas', monospace !important;
+  caret-color: #aeafad;
+}
+.vscode-mode .sentence-content textarea:focus {
+  border-color: var(--vsc-accent) !important;
+  outline: 1px solid var(--vsc-accent) !important;
+}
+
+/* SentencePanel card */
+.vscode-mode .vsc-sentence-panel {
+  background-color: var(--vsc-sidebar-bg) !important;
+  border: 1px solid var(--vsc-border) !important;
+  border-radius: 2px !important;
+}
+.vscode-mode .vsc-sentence-panel * {
+  color: var(--vsc-text) !important;
+}
+.vscode-mode .vsc-sentence-panel .font-bold {
+  color: var(--vsc-text-bright) !important;
+}
+
+/* Pronunciation / phonetic span */
+.vscode-mode .vsc-sentence-panel .text-gray-400,
+.vscode-mode .vsc-sentence-panel .dark\\:text-gray-500 {
+  color: var(--vsc-text-dim) !important;
+}
+
+/* ---- Status-bar mode switcher raised state ---- */
+.vsc-statusbar-mode span {
+  transition: background 0.12s;
+}
+
+/* ---- Sentence content word counter ---- */
+.vscode-mode .sentence-content .text-xs.text-gray-400 {
+  color: var(--vsc-line-number) !important;
+}
+
+/* ============================================================
+   VS Code Editor Toolbar (inside Typing page, VS Code mode)
+   ============================================================ */
+
+.vsc-editor-toolbar {
+  display: none; /* hidden by default */
+}
+
+.vscode-mode .vsc-editor-toolbar {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 9px 12px;
+  background-color: var(--vsc-sidebar-bg);
+  border-bottom: 1px solid var(--vsc-border);
+  flex-shrink: 0;
+  min-height: 48px;
+}
+
+.vsc-editor-toolbar-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  min-width: 34px;
+  height: 31px;
+  border-radius: 12px;
+  cursor: pointer;
+  color: var(--vsc-text);
+  font-size: 13px;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+  background: color-mix(in srgb, var(--vsc-badge-bg) 88%, #fff 12%);
+  border: 1px solid var(--vsc-border);
+  padding: 0 10px;
+}
+
+.vsc-editor-toolbar-btn:hover,
+.vscode-mode .vsc-editor-toolbar button:hover {
+  background-color: var(--vsc-explorer-hover);
+  color: var(--vsc-text-bright);
+}
+
+.vsc-editor-toolbar-btn--active {
+  color: #9cdcfe !important; /* VS Code info blue */
+  border-color: #9cdcfe;
+}
+
+.vsc-editor-toolbar-btn--strong {
+  background: #f97316;
+  border-color: #f97316;
+  color: #ffffff;
+  font-weight: 700;
+}
+
+.vsc-editor-toolbar-btn-text {
+  font-size: 12px;
+  line-height: 1;
+}
+
+.vscode-mode .vsc-editor-toolbar button,
+.vscode-mode .vsc-editor-toolbar svg {
+  color: inherit;
+}
+
+.vsc-editor-toolbar-sep {
+  width: 1px;
+  height: 16px;
+  background-color: color-mix(in srgb, var(--vsc-border) 65%, transparent 35%);
+  margin: 0 2px;
+  flex-shrink: 0;
+}
+
+/* ============================================================
+   Word List Sidebar Panel
+   ============================================================ */
+
+.vsc-wordlist-item {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  padding: 5px 8px;
+  border-radius: 4px;
+  cursor: default;
+  margin-bottom: 2px;
+}
+
+.vsc-wordlist-item:hover {
+  background-color: var(--vsc-explorer-hover);
+}
+
+.vsc-wordlist-name {
+  font-family: 'Menlo', 'Monaco', 'Consolas', monospace;
+  font-size: 13px;
+  color: var(--vsc-text-bright);
+  white-space: nowrap;
+}
+
+.vsc-wordlist-trans {
+  font-size: 11px;
+  color: var(--vsc-text-dim);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
+
+/* ---- Search panel ---- */
+.vsc-search-input-wrap {
+  display: flex;
+  align-items: center;
+  background: var(--vsc-input-bg, #3c3c3c);
+  border: 1px solid var(--vsc-input-border, #555);
+  border-radius: 2px;
+  padding: 3px 8px;
+  gap: 6px;
+}
+
+.vsc-search-input-wrap input {
+  flex: 1;
+  background: none;
+  border: none;
+  outline: none;
+  color: var(--vsc-text);
+  font-size: 12px;
+  font-family: 'Menlo', 'Monaco', 'Consolas', monospace;
+}
+
+/* ---- Status bar chapter nav ---- */
+.vsc-statusbar-chapter {
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+}
+
+/* ---- Clickable word list item ---- */
+.vsc-wordlist-item--clickable {
+  cursor: pointer;
+}
+.vsc-wordlist-item--clickable:hover {
+  background-color: var(--vsc-explorer-hover);
+  outline: 1px solid var(--vsc-accent);
+  outline-offset: -1px;
+}
+.vsc-wordlist-item--clickable:active {
+  opacity: 0.8;
+}
+
+/* ---- Favorites sidebar item ---- */
+.vsc-favorites-item {
+  transition: background 0.1s;
+}
+.vsc-favorites-item:hover {
+  background-color: var(--vsc-explorer-hover);
+}
