@@ -86,7 +86,7 @@ export default function DictRequest() {
               </div>
               <button
                 onClick={() => {
-                  window.open('https://www.mycloudai.org/word-learner', '_blank')
+                  window.open('https://www.mycloudai.org/language-learner', '_blank')
                   onClosePanel()
                 }}
                 className="mt-4 w-full transform rounded-lg bg-gradient-to-r from-blue-500 to-purple-600 px-4 py-2 text-sm font-semibold text-white transition-all duration-200 hover:scale-105 hover:from-blue-600 hover:to-purple-700 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"

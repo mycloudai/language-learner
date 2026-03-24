@@ -24,16 +24,16 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '18'
-          cache: 'npm'
+          cache: 'yarn'
 
       - name: Install dependencies
-        run: npm ci
+        run: yarn install --frozen-lockfile
 
       # GitHub Pages Project Pages 部署在 /repo-name/ 子路径下，
       # 需要将 Vite base 设为 /<repo-name>/ 使资源路径正确。
       # 动态读取仓库名，自动适配 fork 后不同的仓库名。
       - name: Build
-        run: npm run build
+        run: yarn build
         env:
           # 将 base 设置为 /repo-name/ 以匹配 GitHub Pages Project Pages URL
           VITE_BASE_PATH: /${{ github.event.repository.name }}/

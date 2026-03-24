@@ -22,7 +22,7 @@ import IconCoffee from '~icons/tabler/coffee'
 import IconTerminal2 from '~icons/tabler/terminal-2'
 import IconFlagChina from '~icons/twemoji/flag-china'
 
-const redBookCode = 'https://www.mycloudai.org/word-learner/redBook-code.jpg'
+const redBookCode = 'https://www.mycloudai.org/language-learner/redBook-code.jpg'
 
 const Footer: React.FC = () => {
   const [infoPanelState, setInfoPanelState] = useAtom(infoPanelStateAtom)
