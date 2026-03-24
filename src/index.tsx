@@ -42,7 +42,7 @@ function Root() {
     const handleResize = () => {
       const isMobile = window.innerWidth <= 600
       if (!isMobile) {
-        window.location.href = '/'
+        window.location.href = import.meta.env.BASE_URL || '/'
       }
       setIsMobile(isMobile)
     }
@@ -78,7 +78,8 @@ function Root() {
           <Setting showTrigger={false} />
         </VSCodeShell>
       </BrowserRouter>
-      <Analytics />
+      {/* Only inject Vercel Analytics when deployed on Vercel (VERCEL env var is set by Vercel CI) */}
+      {import.meta.env.VITE_VERCEL === '1' && <Analytics />}
     </React.StrictMode>
   )
 }
