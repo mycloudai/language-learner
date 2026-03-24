@@ -93,9 +93,9 @@ export function usePrefetchPronunciationSound(word: string | undefined) {
       const audio = new Audio()
       audio.src = soundUrl
       audio.preload = 'auto'
-
-      // gpt 说这这两行能尽可能规避下载插件被触发问题。 本地测试不加也可以，考虑到别的插件可能有问题，所以加上保险
-      audio.crossOrigin = 'anonymous'
+      // Note: do NOT set crossOrigin here — Youdao does not return CORS headers.
+      // Setting crossOrigin='anonymous' would force a CORS check that fails, and
+      // Chrome caches the failed response, poisoning subsequent playback attempts.
       audio.style.display = 'none'
 
       head.appendChild(audio)
