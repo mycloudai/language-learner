@@ -53,7 +53,7 @@ function Root() {
 
   return (
     <React.StrictMode>
-      <BrowserRouter basename={REACT_APP_DEPLOY_ENV === 'pages' ? '/mycloudai-learner' : ''}>
+      <BrowserRouter basename={import.meta.env.BASE_URL}>
         <VSCodeShell>
           <Suspense fallback={<Loading />}>
             <Routes>
