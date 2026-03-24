@@ -6,14 +6,20 @@ on:
       - master # 推送到 master 时自动触发
   workflow_dispatch: # 允许手动触发
 
-# 允许 GitHub Actions 写入 gh-pages 分支
+# GitHub Actions 方式部署所需权限
 permissions:
-  contents: write
+  contents: read
+  pages: write
+  id-token: write
+
+# 同一时间只允许一个部署，但不取消正在进行的任务
+concurrency:
+  group: 'pages'
+  cancel-in-progress: false
 
 jobs:
-  build-and-deploy:
+  build:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -35,15 +41,23 @@ jobs:
       - name: Build
         run: yarn build
         env:
-          # 将 base 设置为 /repo-name/ 以匹配 GitHub Pages Project Pages URL
           VITE_BASE_PATH: /${{ github.event.repository.name }}/
 
-      - name: Deploy to gh-pages branch
-        uses: peaceiris/actions-gh-pages@v4
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./build
-          # 保留旧文件（字典 JSON 等大文件不每次都重新上传）
-          keep_files: false
-          # 强制覆盖，确保每次部署都是最新版本
-          force_orphan: true
+          path: ./build
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
