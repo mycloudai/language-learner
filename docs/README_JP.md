@@ -24,7 +24,7 @@
 
 ## 📸 オンラインアクセス
 
-Vercel: <https://mycloudai.kaiyi.cool/word-learner/> , <https://mycloudai-learner.vercel.app/>
+Vercel: <https://www.mycloudai.org/word-learner/> , <https://mycloudai-learner.vercel.app/>
 GitHub Pages: <https://realkai42.github.io/mycloudai-learner/>
 Gitee Pages: <https://kaiyiwing.gitee.io/mycloudai-learner/>
 

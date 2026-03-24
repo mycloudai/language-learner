@@ -32,7 +32,7 @@
 
 We have deployed MyCloudAI Learner on many platforms. You can try MyCloudAI Learner in following ways.
 
-- Vercel: <https://mycloudai.kaiyi.cool/word-learner/>, or <https://mycloudai-learner.vercel.app/>.
+- Vercel: <https://www.mycloudai.org/word-learner/>, or <https://mycloudai-learner.vercel.app/>.
 - GitHub Pages: <https://kaiyiwing.github.io/mycloudai-learner/>.
 - Gitee Pages (recommended for people in mainland China): <https://kaiyiwing.gitee.io/mycloudai-learner/>.
 

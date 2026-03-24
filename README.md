@@ -28,7 +28,7 @@
 
 ## 📸 在线访问
 
-**首选部署**: <https://mycloudai.kaiyi.cool/word-learner/>
+**首选部署**: <https://www.mycloudai.org/word-learner/>
 GitHub Pages: <https://realkai42.github.io/mycloudai-learner/>
 
 镜像仓库:

@@ -32,7 +32,7 @@ const EnhancedPromotionModal: React.FC = () => {
     setHasSeenPromotion(true)
     // setIsOpen(false)
     // Open in new tab
-    window.open('https://mycloudai.kaiyi.cool/word-learner', '_blank')
+    window.open('https://www.mycloudai.org/word-learner', '_blank')
   }
 
   const handleDismiss = () => {
