@@ -21,6 +21,9 @@
     "@radix-ui/react-tooltip": "^1.0.7",
     "@tanstack/react-table": "^8.10.7",
     "@vercel/analytics": "^1.5.0",
+    "cors": "^2.8.5",
+    "express": "^4.21.0",
+    "helmet": "^7.1.0",
     "animate.css": "^4.1.1",
     "canvas-confetti": "^1.6.0",
     "class-variance-authority": "^0.7.0",
@@ -60,7 +63,7 @@
   "scripts": {
     "dev": "vite",
     "start": "vite",
-    "build": "cross-env CI=false vite build --base=./",
+    "build": "cross-env CI=false vite build",
     "test": "echo \"No tests\"",
     "test:e2e": "playwright test",
     "lint": "eslint .",

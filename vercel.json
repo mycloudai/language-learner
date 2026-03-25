@@ -1,0 +1,15 @@
+{
+    "buildCommand": "npm run build",
+    "outputDirectory": "build",
+    "framework": null,
+    "rewrites": [
+        {
+            "source": "/api/:path*",
+            "destination": "/api/index"
+        },
+        {
+            "source": "/((?!assets/|dicts/|sounds/|manifest\\.json|robots\\.txt|926\\.json|404\\.html|favicon\\.ico).*)",
+            "destination": "/index.html"
+        }
+    ]
+}

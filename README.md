@@ -47,7 +47,7 @@ GitHub Pages: <https://realkai42.github.io/mycloudai-learner/>
 
 ### Vercel
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FRealKai42%2Fmycloudai-learner)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fmycloudai%2Flanguage-learner)
 
 #### 部署步骤
 

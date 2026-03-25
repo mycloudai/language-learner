@@ -1,12 +1,10 @@
-// Local development entry point — imports the shared Express app and starts listening.
-// For Vercel serverless deployment, use api/index.mjs instead.
-import app from './app.js'
+import cors from 'cors'
+import express from 'express'
+import helmet from 'helmet'
 
-const PORT = process.env.PORT || 3001
+const app = express()
 
-app.listen(PORT, () => {
-  console.log(`API server running on port ${PORT}`)
-})
+const ALLOWED_PROVIDERS = ['openai', 'anthropic', 'anthropic-compatible', 'custom']
 const ALLOWED_DIFFICULTIES = ['easy', 'medium', 'hard']
 const ALLOWED_STYLES = ['formal', 'spoken']
 
@@ -409,6 +407,4 @@ app.get('/api/pronunciation', async (req, res) => {
   }
 })
 
-app.listen(PORT, () => {
-  console.log(`API server running on port ${PORT}`)
-})
+export default app
