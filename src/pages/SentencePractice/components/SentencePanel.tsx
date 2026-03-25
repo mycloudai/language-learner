@@ -104,7 +104,7 @@ export default function SentencePanel({ word, data, loading }: { word: string; d
     <div className="vsc-sentence-panel space-y-4 rounded-xl">
       {/* Sentence display */}
       <div
-        className="relative rounded-xl bg-gray-50 p-6 dark:bg-gray-800/50"
+        className="relative rounded-xl p-6 dark:bg-gray-700/60"
         ref={containerRef}
         onClick={(e) => {
           const el = e.target as HTMLElement
@@ -190,9 +190,9 @@ export default function SentencePanel({ word, data, loading }: { word: string; d
       </div>
 
       {/* Target word usage */}
-      <div className="rounded-lg bg-blue-50 px-4 py-3 dark:bg-blue-900/20">
-        <span className="text-sm font-medium text-blue-700 dark:text-blue-300">📖 {word}：</span>
-        <span className="text-sm text-blue-600 dark:text-blue-400">{data.targetWordUsage}</span>
+      <div className="rounded-lg px-4 py-3 dark:bg-blue-900/40">
+        <span className="text-sm font-medium text-blue-800 dark:text-blue-200">📖 {word}：</span>
+        <span className="text-sm text-blue-700 dark:text-blue-300">{data.targetWordUsage}</span>
       </div>
     </div>
   )

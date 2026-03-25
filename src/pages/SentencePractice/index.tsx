@@ -416,7 +416,7 @@ export default function SentencePractice() {
       <header className="sentence-practice-header flex flex-wrap items-center justify-between gap-2 border-b border-gray-200 px-4 py-2 dark:border-gray-700">
         <div className="flex flex-wrap items-center gap-2 md:gap-4">
           <h1 className="text-sm font-medium text-gray-900 dark:text-white">AI 句子练习</h1>
-          <span className="rounded bg-gray-100 px-2 py-0.5 text-xs text-gray-500 dark:bg-gray-700 dark:text-gray-400">
+          <span className="rounded px-2 py-0.5 text-xs text-gray-500 dark:bg-gray-700/60 dark:text-gray-400">
             {isErrorBankMode ? `错题库 · ${errorBankEntries.length} 题` : `${dictInfo.name} · 第 ${effectiveChapter + 1} 章`}
           </span>
         </div>
