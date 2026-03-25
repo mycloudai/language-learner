@@ -104,9 +104,9 @@ export default function AIChatDialog({ word, sentence, targetWordUsage, language
       {/* Messages */}
       <div className="min-h-[100px] flex-1 overflow-y-auto px-4 py-3" style={{ maxHeight: 320 }}>
         {messages.length === 0 && (
-          <div className="mt-4 text-center text-xs text-gray-400 dark:text-gray-500">
+          <div className="mt-4 text-center text-xs text-gray-600 dark:text-gray-400">
             <div>可以问语法、词义、翻译等问题</div>
-            <div className="mt-1 text-gray-300 dark:text-gray-600">例：这个词在这里是什么词性？</div>
+            <div className="mt-1 text-gray-500 dark:text-gray-500">例：这个词在这里是什么词性？</div>
           </div>
         )}
         <div className="space-y-3">

@@ -499,7 +499,7 @@ export default function SentencePractice() {
           <div className="flex items-center justify-between">
             <div>
               <h2 className="text-2xl font-bold text-gray-900 dark:text-white">{displayWord.name}</h2>
-              <p className="text-sm text-gray-500 dark:text-gray-400">{displayWord.trans?.join('; ')}</p>
+              <p className="text-sm text-gray-700 dark:text-gray-300">{displayWord.trans?.join('; ')}</p>
               {isErrorBankMode && errorBankCurrentEntry && (
                 <p className="mt-1 text-xs text-red-500 dark:text-red-400">
                   错题通过：{errorBankCurrentEntry.errorCorrectCount ?? 0}/{sentenceErrorCorrectTarget}

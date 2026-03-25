@@ -2,6 +2,9 @@
     "buildCommand": "npm run build",
     "outputDirectory": "build",
     "framework": null,
+    "env": {
+        "VITE_API_BASE_URL": "/api"
+    },
     "rewrites": [
         {
             "source": "/api/:path*",

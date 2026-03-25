@@ -44,8 +44,8 @@ export default function AnalysisPanel({ data }: { data: SentenceData }) {
               <div className="space-y-2">
                 {data.vocabNotes.map((vn, i) => (
                   <div key={i} className="rounded-lg bg-amber-50 px-3 py-2 dark:bg-amber-900/20">
-                    <span className="text-sm font-bold text-amber-700 dark:text-amber-300">{vn.word}</span>
-                    <span className="ml-2 text-sm text-amber-600 dark:text-amber-400">{vn.explanation}</span>
+                    <span className="text-sm font-bold text-amber-800 dark:text-amber-300">{vn.word}</span>
+                    <span className="ml-2 text-sm text-amber-700 dark:text-amber-300">{vn.explanation}</span>
                   </div>
                 ))}
               </div>

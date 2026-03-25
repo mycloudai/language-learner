@@ -40,7 +40,6 @@ export default function SentencePanel({ word, data, loading }: { word: string; d
       }
       const audio = new Audio(src)
       audio.preload = 'auto'
-      audio.crossOrigin = 'anonymous'
       audio.volume = pronunciationConfig.volume
       audio.playbackRate = pronunciationConfig.rate
       audioRef.current = audio

@@ -146,6 +146,17 @@ export function AISettingsSection() {
     return Array.from(new Set(presets.concat(fetchedModels))).sort()
   }, [fetchedModels, localConfig.provider])
 
+  const persistConfig = useCallback(
+    (updater: (prev: AIConfig) => AIConfig) => {
+      setLocalConfig((prev) => {
+        const next: AIConfig = { ...updater(prev), requestMode: 'server' }
+        setAiConfig({ ...next, isConfigured: Boolean(next.apiKey.trim()) })
+        return next
+      })
+    },
+    [setAiConfig],
+  )
+
   const handleTestConnection = useCallback(async () => {
     setTesting(true)
     setTestResult(null)
@@ -178,7 +189,7 @@ export function AISettingsSection() {
       })
       setFetchedModels(models)
       if (models.length > 0 && !models.includes(localConfig.model)) {
-        setLocalConfig((c) => ({ ...c, model: models[0] }))
+        persistConfig((c) => ({ ...c, model: models[0] }))
         setCustomModelInput(models[0])
       }
     } catch (err) {
@@ -186,18 +197,7 @@ export function AISettingsSection() {
     } finally {
       setFetchingModels(false)
     }
-  }, [localConfig])
-
-  const persistConfig = useCallback(
-    (updater: (prev: AIConfig) => AIConfig) => {
-      setLocalConfig((prev) => {
-        const next: AIConfig = { ...updater(prev), requestMode: 'server' }
-        setAiConfig({ ...next, isConfigured: Boolean(next.apiKey.trim()) })
-        return next
-      })
-    },
-    [setAiConfig],
-  )
+  }, [localConfig, persistConfig])
 
   const selectClasses =
     'w-full rounded-lg border border-gray-300 bg-white px-3 py-2 text-sm outline-none focus:border-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white'
